@@ -1,0 +1,69 @@
+Script started on 2022-11-06 13:25:26+02:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="127" LINES="59"]
+$ [7mdocker container run -it ubuntu bash[27m
+[C[C[C[C[C[C[C[Cdocker container run -it ubuntu bash
+[?2004l
+Unable to find image 'ubuntu:latest' locally
+latest: Pulling from library/ubuntu
+
+[1A[2K
+e96e057aae67: Pulling fs layer 
+[1B[1A[2K
+e96e057aae67: Downloading [>                                                  ]  309.6kB/30.43MB
+[1B[1A[2K
+e96e057aae67: Downloading [====>                                              ]  2.497MB/30.43MB
+[1B[1A[2K
+e96e057aae67: Downloading [========>                                          ]  4.987MB/30.43MB
+[1B[1A[2K
+e96e057aae67: Downloading [===========>                                       ]  7.179MB/30.43MB
+[1B[1A[2K
+e96e057aae67: Downloading [==============>                                    ]  9.055MB/30.43MB
+[1B[1A[2K
+e96e057aae67: Downloading [=================>                                 ]  10.62MB/30.43MB
+[1B[1A[2K
+e96e057aae67: Downloading [====================>                              ]  12.17MB/30.43MB
+[1B[1A[2K
+e96e057aae67: Downloading [======================>                            ]  13.74MB/30.43MB
+[1B[1A[2K
+e96e057aae67: Downloading [=================================>                 ]  20.33MB/30.43MB
+[1B[1A[2K
+e96e057aae67: Downloading [============================================>      ]  26.87MB/30.43MB
+[1B[1A[2K
+e96e057aae67: Download complete 
+[1B[1A[2K
+e96e057aae67: Extracting [>                                                  ]  327.7kB/30.43MB
+[1B[1A[2K
+e96e057aae67: Extracting [============>                                      ]  7.537MB/30.43MB
+[1B[1A[2K
+e96e057aae67: Extracting [===================>                               ]  12.12MB/30.43MB
+[1B[1A[2K
+e96e057aae67: Extracting [===================================>               ]  21.63MB/30.43MB
+[1B[1A[2K
+e96e057aae67: Extracting [===========================================>       ]  26.54MB/30.43MB
+[1B[1A[2K
+e96e057aae67: Extracting [=================================================> ]  30.15MB/30.43MB
+[1B[1A[2K
+e96e057aae67: Extracting [==================================================>]  30.43MB/30.43MB
+[1B[1A[2K
+e96e057aae67: Pull complete 
+[1BDigest: sha256:4b1d0c4a2d2aaf63b37111f34eb9fa89fa1bf53dd6e4ca954d47caebca4005c2
+Status: Downloaded newer image for ubuntu:latest
+[?2004h]0;root@cb6c4f5e09a9: /root@cb6c4f5e09a9:/# 
+[K]0;root@cb6c4f5e09a9: /root@cb6c4f5e09a9:/# [7mhostname[27mhostname
+[?2004l
+cb6c4f5e09a9
+[?2004h]0;root@cb6c4f5e09a9: /root@cb6c4f5e09a9:/# [7mmkdir /usr/src/app [27mmkdir /usr/src/app 
+[?2004l
+[?2004h]0;root@cb6c4f5e09a9: /root@cb6c4f5e09a9:/# [7mtouch /usr/src/app/index.js[27mtouch /usr/src/app/index.js
+[?2004l
+[?2004h]0;root@cb6c4f5e09a9: /root@cb6c4f5e09a9:/# [K[7mls -l /usr/src/app[27mls -l /usr/src/app
+[?2004l
+total 0
+-rw-r--r-- 1 root root 0 Nov  6 11:25 index.js
+[?2004h]0;root@cb6c4f5e09a9: /root@cb6c4f5e09a9:/# exit
+[?2004l
+exit
+$ exit
+[?2004l
+exit
+
+Script done on 2022-11-06 13:25:52+02:00 [COMMAND_EXIT_CODE="0"]
