@@ -6,7 +6,7 @@ COPY . .
 
 RUN npm install
 
-ENV REACT_APP_BACKEND_URL=http://localhost:3000
-ENV PORT=3001
+ENV REACT_APP_BACKEND_URL=http://localhost:3001
+ENV PORT=3000
 
 CMD ["npm", "start"]
