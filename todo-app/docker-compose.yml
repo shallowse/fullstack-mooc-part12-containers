@@ -1,0 +1,47 @@
+services:
+  frontend-app:
+    image: hello-front-dev
+    build:
+      context: ./todo-frontend
+      dockerfile: prod.Dockerfile
+    container_name: hello-front-dev
+
+  mongo:
+    image: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_INITDB_DATABASE: the_database
+    volumes:
+      - ./todo-backend/mongo/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
+      - ./todo-backend/mongo_data:/data/db
+
+  redis:
+    image: redis
+    command: ['redis-server', '--appendonly', 'yes']
+    volumes:
+      - ./todo-backend/redis_data:/data
+
+  backend-app:                    
+    image: express-server 
+    build:
+      context: ./todo-backend
+      dockerfile: prod.Dockerfile
+    environment:
+      - REDIS_URL=//redis:6379
+      - MONGO_URL=mongodb://the_username:the_password@mongo:27017/the_database
+    container_name: hello-backend-dev
+    depends_on:
+      - mongo
+      - redis
+
+  nginx:
+    image: nginx:1.20.1
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - 8080:80
+    container_name: reverse_proxy
+    depends_on:
+      - frontend-app
+      - backend-app
