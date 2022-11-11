@@ -1,0 +1,25 @@
+# https://github.com/docker/awesome-compose/tree/master/react-express-mongodb
+# https://docs.docker.com/compose/compose-file/
+
+services:
+  frontend-prod:
+    build:
+      context: frontend
+    container_name: frontend-prod
+    restart: always
+
+  backend-prod:
+    build:
+      context: backend
+    container_name: backend-prod
+    restart: always
+
+  nginx:
+    build: reverse-proxy
+    ports:
+      - 8080:80
+    restart: always
+    container_name: reverse-proxy
+    depends_on:
+      - frontend-prod
+      - backend-prod

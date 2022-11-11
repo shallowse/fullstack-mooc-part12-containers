@@ -26,7 +26,13 @@ function App() {
       return;
     }
 
-    const url = `http://localhost:6453/${city}`;
+    let url;
+    if (process.env.NODE_ENV === 'production') {
+      url = `http://localhost:8080/api/${city}`;
+    } else {
+      url = `http://localhost:6453/${city}`;
+    }
+
     const { data } = await axios.get(url);
     setPeople(data);
     setCity(city);

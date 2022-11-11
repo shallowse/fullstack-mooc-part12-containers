@@ -1,7 +1,8 @@
+# https://github.com/docker/awesome-compose/tree/master/react-express-mongodb
 services:
   frontend-dev:
     build:
-      context: ./frontend
+      context: frontend
       dockerfile: dev.Dockerfile
     ports:
       - 3000:3000
@@ -11,7 +12,7 @@ services:
 
   backend-dev:
     build:
-      context: ./backend
+      context: backend
       dockerfile: dev.Dockerfile
     ports:
       - 6453:6453
