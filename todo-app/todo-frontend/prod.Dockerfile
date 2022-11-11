@@ -8,11 +8,9 @@ RUN npm ci
 COPY . /usr/src/app
 RUN npm run build
 
-# FROM node:16-alpine
-# WORKDIR /build
-# COPY --from=build-stage /usr/src/app/build /build
-# RUN npm install -g serve
-# CMD ["serve"]
-
-FROM nginx:alpine
-COPY --from=build-stage /usr/src/app/build /usr/share/nginx/html
+FROM node:16-alpine
+WORKDIR /build
+COPY --from=build-stage /usr/src/app/build /build
+RUN npm install -g serve
+ENV PORT=3000
+CMD ["serve"]

@@ -4,17 +4,11 @@ const redis = require('../redis');
 
 const configs = require('../util/config')
 
-const KEY = 'RAND_KEY';
-
-//let visits = 0
+let visits = 0
 
 /* GET index data. */
 router.get('/', async (req, res) => {
-  let visits = await redis.getAsync(KEY)
-  if (!visits) {
-    visits = 0;
-  }
-  await redis.setAsync(KEY, ++visits);
+  visits++
 
   res.send({
     ...configs,
@@ -23,11 +17,11 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/statistics', async (req, res) => {
-  let visits = await redis.getAsync(KEY);
-  if (!visits) {
-    visits = 0;
+  let num_todos = await redis.getAsync(redis.KEY);
+  if (!num_todos) {
+    num_todos = 0;
   }
-  res.send({ "added_todos": visits });
+  res.send({ "added_todos": num_todos });
 });
 
 module.exports = router;

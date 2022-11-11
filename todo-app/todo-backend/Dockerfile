@@ -8,4 +8,6 @@ RUN npm ci
 
 USER node
 
+ENV PORT=3001
+
 CMD npm start
